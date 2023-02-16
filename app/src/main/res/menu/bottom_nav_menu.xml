@@ -11,6 +11,6 @@
 
     <item android:id="@+id/Technology"
         android:title="Technology"
-        android:icon="@drawable/science"/>
+        android:icon="@drawable/technology"/>
 
 </menu>

@@ -7,8 +7,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.orelit.myapplication.R;
+import com.orelit.myapplication.api.ApiClient;
+import com.orelit.myapplication.api.ApiServices;
+import com.orelit.myapplication.dto.ScienceNewsDTO;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +56,9 @@ public class BusnessFragment extends Fragment {
         return fragment;
     }
 
+    ApiServices apiServices;
+    TextView CatogoryTV;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +71,36 @@ public class BusnessFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        apiServices = ApiClient.getAPIClient();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_busness, container, false);
+        View  v =inflater.inflate(R.layout.fragment_busness, container, false);
+
+        CatogoryTV = v.findViewById(R.id.CatogoryTV);
+
+        getSubject();
+        return v;
+    }
+    public void getSubject(){
+
+        Call<ScienceNewsDTO> call = apiServices.getSubject("business");
+        call.enqueue(new Callback<ScienceNewsDTO>() {
+            @Override
+            public void onResponse(Call<ScienceNewsDTO> call, Response<ScienceNewsDTO> response) {
+                if(response.isSuccessful()){
+                    System.out.println("Success");
+                    CatogoryTV.setText(response.body().getCategory());
+
+                }else{
+                    System.out.println("Unsuccessful");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ScienceNewsDTO> call, Throwable t) {
+
+                System.out.println(t);
+            }
+        });
+
     }
 }

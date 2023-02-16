@@ -32,7 +32,7 @@ public class NewsActivity extends AppCompatActivity {
 
         BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.Busness);
         badgeDrawable.setVisible(true);
-        badgeDrawable.setNumber(10);
+        badgeDrawable.setNumber(5);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

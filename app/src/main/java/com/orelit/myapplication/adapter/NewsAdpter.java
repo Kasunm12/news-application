@@ -45,9 +45,7 @@ public class NewsAdpter extends RecyclerView.Adapter<NewsAdpter.NewsAdpterViewHo
                 .placeholder(R.drawable.icon)
                 .into(holder.ic_personal_acc);
 
-
     }
-
 
 
     @Override
@@ -70,6 +68,7 @@ public class NewsAdpter extends RecyclerView.Adapter<NewsAdpter.NewsAdpterViewHo
             tv_personal_acc = itemView.findViewById(R.id.tv_personal_acc);
             textView2 = itemView.findViewById(R.id.textView2);
             ic_personal_acc = itemView.findViewById(R.id.ic_personal_acc);
+
         }
     }
 }

@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/Science"
         android:title="Science"
-        android:icon="@drawable/science"/>
+        android:icon="@drawable/science"
+        android:enabled="true"/>
 
     <item android:id="@+id/Busness"
         android:title="Busness"
-        android:icon="@drawable/business"/>
+        android:icon="@drawable/business"
+        android:enabled="true"/>
 
     <item android:id="@+id/Technology"
         android:title="Technology"
-        android:icon="@drawable/technology"/>
+        android:icon="@drawable/technology"
+        android:enabled="true"/>
 
 </menu>
